@@ -1,0 +1,34 @@
+{% extends 'base_dashboard.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <div class="col-md-6">
+            <span class="left-align">    
+                <a href="{% url 'authentification.edit_infos' %}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                 informations personnelles 
+                </a>
+            </span>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{% url 'authentification.edit_password' %}" >
+                <i class="fas fa-edit purple-text"></i>
+               mot de passe 
+            </a>
+        </div>
+    </div>
+    
+
+    <!-- Informations personnelles -->
+    <div >
+       
+        <h1>Informations Personnelles</h1>
+        
+    <div>
+      
+        <p>Nom: {{ nom }}</p>
+    
+    </div>
+</div>
+{% endblock %}

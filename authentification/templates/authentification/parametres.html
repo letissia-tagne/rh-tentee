@@ -1,0 +1,39 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <div class="col-md-6">
+            <span class="left-align">    
+                <a href="{% url 'authentification.edit_infos' %}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                 informations peronnelles 
+                </a>
+            </span>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{% url 'authentification.edit_password' %}" >
+                <i class="fas fa-edit purple-text"></i>
+               mot de passe 
+            </a>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <h2>Informations personnelles</h2>
+        <form action="{% url 'authentification.edit_infos' %}" method="post">
+            {% csrf_token %}
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" value="{{ utilisateur.nom }}" required>
+
+            <label for="email">Adresse Email :</label>
+            <input type="email" name="email" value="{{ utilisateur.email }}" required>
+
+            <button type="submit">Mettre à jour vos informations </button>
+        </form>
+    </div>
+
+</div>
+
+
+
+{% endblock %}  

@@ -1,0 +1,125 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+{% for message in messages %}
+<strong>{{message}} </strong>
+{% endfor %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1>Utilisateurs</h1>
+        </div>
+
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary float-right mt-3" data-toggle="modal" data-target="#exampleModal">
+                Ajouter un utilisateur
+            </button>
+        </div>
+        
+    </div>
+       
+    <table class="table">
+       
+        <thead>
+            <tr>
+                <th></th>
+                <th>nom</th>
+                <th>Nom d'utilisateur</th>
+                <th>Rôle</th>
+                <th>date d'embauche</th>
+                <th>email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for user in users %}
+                <tr> 
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1{{ user.id }}">
+                            <label class="form-check-label" for="defaultCheck1{{ user.id }}">
+                            </label>
+                        </div>
+                    </td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.date_of_hire}}</td>
+                    <td>{{ user.email}}</td>
+                    <td>
+                        <a href="{% url 'authentification.edit' user.id %}">
+                            <i class="fas fa-edit" style="color: blue;"></i>
+                        </a>
+                        <a href="{% url 'authentification.delete' pk=user.pk %}">
+                            <i class="fas fa-trash-alt" style="color: red;"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+    </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nouvel ajout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+         
+          <form method="post" action="{% url 'customuser.add_utilisateur' %}" >
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" name="first_name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Rôle </label>
+                    <select id="inputState" class="form-control" name="role">
+                        <option selected>Selectionner le role</option>
+                        <option value="1">Développeur</option>
+                        <option value="2">Gestionnaire RH</option>
+                        <option value="3">Chef des projets</option>
+                        <option value="4">Formateur</option>
+                        <option value="5">Apprenant</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="nom">Nom utilisateur</label>
+                    <input type="text" class="form-control" name="username" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="password ">Mot de passe</label>
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="confirm_password">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" name="confirm_password" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            </div>
+         </form>
+       
+        
+      </div>
+    </div>
+  </div>
+
+{% endblock %}  

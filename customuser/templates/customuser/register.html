@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+{% for message in messages %}
+<strong>{{message}} </strong>
+{% endfor %}
+
+<div class="header-wrapper">
+            <div class="header" style="background-image: url('/static/img/tele-bg.jpg');">
+
+                <div class="title-container text-center">
+
+<h4>S'enregistrer ici</h4>
+
+<form method="post" action="/user/register">
+   {% csrf_token %}
+<label for ="username">username</label>
+<input type="text" name="username" id="username" placeholder="enter your username" required>
+<br>
+<br> 
+<label for="email">email</label>
+<input type="email" name="email" id="email" placeholder="enter your email" required>
+<br>
+<br> 
+<label for="password">password</label>
+<input type="password" name="password" id="password" placeholder="enter your password" required>
+<br>
+<br>
+<label for ="password1">password1</label>
+<input type="password" name="password1" id="password1" placeholder="enter your password1" required>
+<br>
+<br> 
+<button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+</div>
+</div>
+      </div>
+{% endblock %}

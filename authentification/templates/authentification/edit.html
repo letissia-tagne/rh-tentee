@@ -1,0 +1,42 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+
+<form method="post" action="{% url 'authentification.edit' user.id %}" >
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" name="first_name"  value="{{ user.first_name }}" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="email">Adresse Email</label>
+            <input type="email" class="form-control" name="email" value="{{ user.email }}" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Rôle </label>
+            <select id="inputState" class="form-control" name="role">
+                <option selected>Selectionner le role</option>
+                <option value="1" {% if user.role == 1 %}selected{% endif %}>Développeur</option>
+                <option value="2" {% if user.role == 2 %}selected{% endif %}>Gestionnaire RH</option>
+                <option value="3" {% if user.role == 3 %}selected{% endif %}>Chef des projets</option>
+                <option value="4" {% if user.role == 4 %}selected{% endif %}>Formateur</option>
+                <option value="5" {% if user.role == 5 %}selected{% endif %}>Apprenant</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="nom">Nom utilisateur</label>
+            <input type="text" class="form-control" name="username"   value="{{ user.username }}" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" >annuler</button>
+
+    </div>
+    </form>
+    
+{% endblock %}  

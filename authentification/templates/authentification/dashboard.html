@@ -1,0 +1,39 @@
+{% extends 'base_dashboard.html'%} {% block content %}
+<div class="container-fluid">
+  <div class="row mb-5 pt-3">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <p>Total des Employés <span class="active highlight">10.0%</span></p>
+          <h4>17</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <p>Employés Démissionnaires <span class="active highlight">7.0%</span></p>
+          <h4>5</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <p>Composition des Employés</p>
+          <p>Nombre total d'employés : {{ total_employees }}</p>
+          <ul>
+            {% for department, percentage in department_composition.items %}
+            <li>{{ department }} : {{ percentage }}%</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

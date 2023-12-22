@@ -1,0 +1,67 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <div class="col-md-6">
+            <span class="left-align">    
+                <a href="{% url 'authentification.presences_absences' %}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                    Présences et absences
+                </a>
+            </span>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{% url 'authentification.conges' %}" >
+                <i class="fas fa-edit purple-text"></i>
+                Congés
+            </a>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-6">
+            <h4>Presence et absence des employés</h4>
+        </div>
+    </div>
+       
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Heure de debut</th>
+                <th>Heure de fin</th>
+                <th>Present(e)/Absent(e)</th>
+                <th>Motif</th>
+            </tr>
+            
+            <td> elie</td>
+            <td>17/12/23 </td>
+            <td>17/12/23 </td>
+            <td> 17/12/23</td>
+            
+                <!-- Ajoutez ici un lien ou un bouton pour ajouter un nouvel employé -->
+        </thead>
+        <tbody>
+            {% for utilisateur in utilisateurs %}
+                <tr>
+                    <td>{{ utilisateur.name }}</td>
+                    <td>{{ utilisateur.role }}</td>
+                    <td>{{ utilisateur.email }}</td>
+                    <td>{{ utilisateur.created_at }}</td>
+                    <td>
+                        <a href="{% url 'edit_utilisateur' utilisateur.id %}">Modifier</a>
+                        |
+                        <a href="{% url 'delete_utilisateur' utilisateur.id %}">Supprimer</a>
+                        |
+                        <a href="{% url 'delete_utilisateur' utilisateur.id %}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+  </div>
+
+
+{% endblock %}  

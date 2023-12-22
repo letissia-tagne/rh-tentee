@@ -1,0 +1,45 @@
+a {
+    color: #000000;
+}
+
+a.active {
+    color: #5932ea;
+}
+
+a:hover {
+    color: #5932ea;
+    text-decoration: none;
+}
+
+a:active {
+    color: #5932ea;
+}
+
+h6 {
+    display: inline;
+}
+
+.bg-dashboard {
+    background-color: #f8fafb;
+}
+
+.highlight {
+    /* Styles pour la classe highlight */
+    font-weight: bold; /* exemple de mise en gras */
+}
+
+.percentage-highlight {
+    color: green;
+}
+
+.percentage-highlight {
+    color: darkgreen; /* Utilisez la couleur verte foncée de votre choix */
+}
+
+.left-align {
+    display: block;
+    text-align: left;
+}
+.form-row .form-group input {
+    width: 100%;
+}

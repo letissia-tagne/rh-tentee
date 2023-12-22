@@ -1,0 +1,35 @@
+a {
+    color: #000000;
+}
+
+a.active {
+    color: #5932ea;
+}
+
+a:hover {
+    color: #5932ea;
+    text-decoration: none;
+}
+
+a:active {
+    color: #5932ea;
+}
+
+h6 {
+    display: inline;
+}
+
+.bg-dashboard {
+    background-color: #f8fafb;
+}
+
+
+.left-align {
+    display: block;
+    text-align: left;
+}
+
+.btn-purple {
+    background-color: purple;
+    color: white; /* Text color */
+}

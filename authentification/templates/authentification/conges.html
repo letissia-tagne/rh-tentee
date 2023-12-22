@@ -1,0 +1,76 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+<h1>disponibilites </h1>
+<div class="d-flex justify-content-between">
+    <div class="col-md-6">
+        <span class="left-align">    
+            <a href="{% url 'authentification.presences_absences' %}">
+                <i class="fas fa-edit"></i>
+                Présences et absences
+            </a>
+        </span>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="{% url 'authentification.conges' %}"  class="btn btn-primary">
+            <i class="fas fa-edit purple-text"></i>
+            Congés
+        </a>
+    </div>
+</div>
+   <h1>conges des employés </h1>
+
+   <table class="table">
+     <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Adresse Email</th>
+            <th>Date de Demande</th>
+            <th>Date de Début</th>
+            <th>Date de Fin</th>
+            <th>Statut</th>
+           </tr>
+      </thead>
+    <tbody>
+        <!-- Ajoutez ici des lignes pour chaque congé -->
+        <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>2023-12-20</td>
+            <td>2023-12-25</td>
+            <td>2023-12-30</td>
+            <td>En attente</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>2023-12-20</td>
+            <td>2023-12-25</td>
+            <td>2023-12-30</td>
+            <td>Teminer</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>2023-12-20</td>
+            <td>2023-12-25</td>
+            <td>2023-12-30</td>
+            <td>En attente</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>2023-12-20</td>
+            <td>2023-12-25</td>
+            <td>2023-12-30</td>
+            <td>Teminer</td>
+        </tr>
+        <!-- Ajoutez d'autres lignes selon vos besoins -->
+    </tbody>
+</table>
+
+<!-- Ajoutez ici d'autres éléments HTML ou du contenu -->
+
+<!-- Ajoutez ici les liens vers les fichiers JavaScript nécessaires -->
+</div>
+{% endblock %}  

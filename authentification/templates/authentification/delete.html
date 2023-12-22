@@ -1,0 +1,16 @@
+{% extends 'base_dashboard.html'%} 
+
+{% block content %}
+<h1>Etes-vous sur</h1>
+
+<form method="post" action="{% url 'authentification.delete' pk=object.id %}" >
+  {% csrf_token %}
+  <p>{{ object }} sera definitivement supprimé ?</p>
+  
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Oui, supprimer</button>
+    <a href="{% url 'authentification.delete' pk=object.id%}">Annuler</a>
+    </div>
+</form>
+
+{% endblock %}   <button type="submit" >annuler</button>

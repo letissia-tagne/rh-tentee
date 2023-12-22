@@ -1,0 +1,28 @@
+{% extends 'base.html'%} 
+
+{% block content %}
+
+{% for message in messages%}
+    <strong>{{message}} </strong>
+{% endfor %}
+
+{% if user.is_authenticated %}
+     
+     <h3>bonjour {{ user.username}} bienvenue sur tentee globale</h3>
+    
+    <a href="{% url 'customuser.logout' %}"><button type="button">Se deconnecter</button></a>
+{% else %}
+    <br>
+    <br>
+    <div style="text-align: center;">
+      <!-- Vos boutons ici -->
+  
+    <a href="{% url 'customuser.register' %}"><button type="button">S'enregister</button></a>
+    <br>
+    <br>
+    <a href="{% url 'customuser.login' %}"><button type="button">Se connecter </button></a>
+    </div> 
+  {% endif %} 
+
+{% endblock %}  
+

@@ -1,0 +1,10 @@
+{% extends 'base_dashboard.html'%}
+
+{% block content %}
+  <h2>Ajouter un utilisateur</h2>
+  <form method="post" action="{% url 'add_utilisateur' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ajouter</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Intégrer Bootstrap -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{% static 'authentification/css/dashboard.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+            <h2>Tentee RH</h2>
+            </div>
+            <div class="col-md-8">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                      <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                      </form>
+                    </div>
+                </nav>
+            
+            </div>
+            
+            <div class="col-md-1">
+                <i class="fa fa-bell" alt="Notification"></i>
+            </div>
+        </div>
+        <br>  
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row" >
+                    <div class="col">
+                        <h2> Tentee</h2>
+                           admin
+                    </div>
+                </div>  
+                <br>
+                <div class="row text-left">
+                   <div class="col">
+                    <a href="{% url 'authentification.dashboard' %}" class="active">
+                    <i class="fa fa-university"></i> <h6 class="ml-1">Tableau de bord</h6>
+                    </a>
+                    </div>
+                </div> 
+                <br>
+                <div class="row text-left">
+                    <div class="col">
+                     <a href="{% url 'authentification.utilisateurs' %}">
+                        <i class="fa fa-user"></i> <h6 class="ml-1">Utilisateurs</h6>
+                    </a>
+                    </div>
+                </div>  
+                <br>
+                <div class="row text-left">
+                    <div class="col">
+                        <a href="{% url 'authentification.paies' %}">
+                        <i class="fa fa-money-bill-alt"></i> <h6 class="ml-1">Paies</h6>
+                      </a>
+                    </div>
+                </div> 
+                <br>
+                <div class="row text-left">
+                    <div class="col">
+                        <a href="{% url 'authentification.disponibilites' %}">
+                        <i class="fa fa-check-circle"></i> <h6 class="ml-1">Disponibilités</h6>
+                    </a>
+                    </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                    <div class="col">
+                        <a href="{% url 'authentification.parametres' %}">
+                        <i class="fa fa-cog"></i> <h6 class="ml-1">Paramètres</h6>
+                    </a>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                    <br>
+                    <div class="row text-left">
+                        <div class="col">
+                            <a href="{% url 'customuser.logout' %}">
+                            <i class="fa fa-sign-out-alt"></i> <h6 class="ml-1">Deconnexion</h6>
+                        </a>
+                        </div>
+                    </div>
+                {% endif %} 
+            </div>
+            <div class="col-md-9 bg-dashboard">
+                {% block content %} 
+                
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Intégrer les scripts Bootstrap et jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'authentification/js/dashboard.js' %}"></script>
+
+</body>
+</html>

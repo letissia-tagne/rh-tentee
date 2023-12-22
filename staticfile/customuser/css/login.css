@@ -1,0 +1,22 @@
+.login-dropdown {
+    width: 100%;
+}
+
+.login-content {
+    box-shadow: 1px 4px 5px 3px #d4d4d4;
+}
+
+.login-input {
+    border-radius: 25px;
+}
+
+.login-button {
+    width: 100%;
+    border-radius: 25px;
+    background-color: #5932EA;
+    border: none;
+}
+
+.login-button:hover {
+    background-color: #5932EA;
+}
