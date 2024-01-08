@@ -43,3 +43,26 @@ h6 {
 .form-row .form-group input {
     width: 100%;
 }
+
+label {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

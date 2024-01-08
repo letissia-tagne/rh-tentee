@@ -1,0 +1,22 @@
+{% extends 'base_dashboard.html' %}
+
+{% block content %}
+<h1>Liste des Tâches</h1>
+
+<ul>
+    <!-- Boucle à travers les tâches et génère chaque élément de liste -->
+    {% for task in tasks %}
+        <li>
+            <strong>{{ task.task }}</strong>
+            <br>
+            <span>Date: {{ task.date }}</span>
+            <br>
+            <span>Durée: {{ task.duration }} heures</span>
+            <br>
+            <span>Priorité: {{ task.priority }}</span>
+            <br>
+            <span>Statut: {{ task.status }}</span>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

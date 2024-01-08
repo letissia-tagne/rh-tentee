@@ -6,14 +6,61 @@
 {% endfor %}
 <div class="container-fluid">
     <div class="row">
+ 
+        <div class="col-md-6">
+            <h1>Employés</h1>
+            
+           </div> 
+            
+            <nav>
+             <div class="section">
+               <div class="row">
+                   <div class="col">
+                       <a href="{% url 'authentification.listes_rh' %}" class="active">
+                           <i class="fas fa-list"></i><h6 class="ml-1">liste</h6>
+                       </a>  
+           
+                   </div>
+                   <div class="col">
+                       <a href="{% url 'authentification.absences_rh' %}">
+                           <i class="far fa-calendar-times"></i><h6 class="ml-1">Absences</h6>
+                       </a>
+                   </div>
+                   <div class="col">
+                   <a href="{% url 'authentification.conges_rh' %}">
+                       <i class="far fa-calendar-check"></i><h6 class="ml-1">Congés</h6>
+                   </a>
+                  </div>
+                  <div class="col">
+                   <a href="{% url 'authentification.suivi_horaire' %}">
+                       <i class="far fa-clock"></i><h6 class="ml-1">Suivie haoraire</h6>
+                   </a>
+               </div>
+                   <div class="col">
+                   <a href="{% url 'authentification.contrat_attes' %}">
+                       <i class="far fa-file-alt"></i><h6 class="ml-1">Contrat et Attestations </h6>
+                   </a>
+               </div>
+                   
+               </div>
+           </div>
+
+               
+        </nav>
+       
+
+        </div>
+     
+    </div>
+    <div class="row">
 
         <div class="col-md-6">
-            <h1>Utilisateurs</h1>
+            <h1>Liste</h1>
         </div>
 
         <div class="col-md-6 text-right">
             <button type="button" class="btn btn-primary float-right mt-3" data-toggle="modal" data-target="#exampleModal">
-                Ajouter un utilisateur
+                Ajouter des  utilisateurs
             </button>
         </div>
         
@@ -24,12 +71,12 @@
         <thead>
             <tr>
                 <th></th>
-                <th>nom</th>
+                <th>Nom</th>
                 <th>Nom d'utilisateur</th>
                 <th>Rôle</th>
-                <th>date d'embauche</th>
                 <th>email</th>
-                <th>Action</th>
+                <th>date d'ajout</th>
+                <th>Actions</th>
             </tr>
         </thead>
         
@@ -46,8 +93,8 @@
                     <td>{{ user.first_name }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.role }}</td>
-                    <td>{{ user.date_of_hire}}</td>
                     <td>{{ user.email}}</td>
+                    <td>{{ user.date_added}}</td>
                     <td>
                         <a href="{% url 'authentification.edit' user.id %}">
                             <i class="fas fa-edit" style="color: blue;"></i>
@@ -88,7 +135,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">Rôle </label>
-                        <select class="form-control" id="role" name="role" required>
+                        <select id="inputState" class="form-control" name="role">
                             <option selected>Selectionner le role</option>
                             <option value="1">Développeur</option>
                             <option value="2">Gestionnaire RH</option>

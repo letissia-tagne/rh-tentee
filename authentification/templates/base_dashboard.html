@@ -19,12 +19,12 @@
             <div class="col-md-8">
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
-                      <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                      </form>
+                        <form class="d-flex" role="search" action="{% url 'authentification.resultats_recherche' %}" method="get">
+                            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="q">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </div>
                 </nav>
-            
             </div>
             
             <div class="col-md-1">
@@ -37,8 +37,7 @@
             <div class="col-md-3">
                 <div class="row" >
                     <div class="col">
-                        <h2> Tentee</h2>
-                           admin
+                        <h2>{{ user.first_name }}</h2>
                     </div>
                 </div>  
                 <br>
@@ -50,30 +49,56 @@
                     </div>
                 </div> 
                 <br>
+                {% if user.role == 2  or user.is_superuser %}
                 <div class="row text-left">
                     <div class="col">
-                     <a href="{% url 'authentification.utilisateurs' %}">
+                    <a href="{% url 'authentification.utilisateurs' %}">
                         <i class="fa fa-user"></i> <h6 class="ml-1">Utilisateurs</h6>
                     </a>
                     </div>
                 </div>  
-                <br>
-                <div class="row text-left">
-                    <div class="col">
-                        <a href="{% url 'authentification.paies' %}">
-                        <i class="fa fa-money-bill-alt"></i> <h6 class="ml-1">Paies</h6>
-                      </a>
+                {% endif %}
+                {% if user.role == 2  or user.is_superuser %} 
+                    <br>
+                    <div class="row text-left">
+                        <div class="col">
+                            <a href="{% url 'authentification.paies' %}">
+                            <i class="fa fa-money-bill-alt"></i> <h6 class="ml-1">Paies</h6>
+                        </a>
+                        </div>
+                    </div> 
+                    <br>
+                     <div class="row text-left">
+                        <div class="col">
+                            <a href="{% url 'authentification.disponibilites' %}">
+                            <i class="fa fa-check-circle"></i> <h6 class="ml-1">Disponibilités</h6>
+                        </a>
+                        </div>
                     </div>
-                </div> 
-                <br>
+                    <br>
+
+                {% endif %}
+                {% if user.role == 1 %}
                 <div class="row text-left">
                     <div class="col">
-                        <a href="{% url 'authentification.disponibilites' %}">
-                        <i class="fa fa-check-circle"></i> <h6 class="ml-1">Disponibilités</h6>
+                        <a href="{% url 'authentification.taches' %}">
+                            <i class="fa-solid fa-list-check"></i><h6 class="ml-1">Taches</h6>
                     </a>
                     </div>
                 </div>
-                <br>
+                <br> 
+                {% endif %}
+                {% if user.role == 2 %}
+                    <div class="row text-left">
+                        <div class="col">
+                            <a href="{% url 'authentification.groupes' %}">
+                            <i class="fa fa-user"></i> <h6 class="ml-1">Groupes</h6>
+                        </a>
+                        </div>
+                    </div>
+                {% endif %} 
+                <br> 
+                {% if user.role == 2  or user.is_superuser %} 
                 <div class="row text-left">
                     <div class="col">
                         <a href="{% url 'authentification.parametres' %}">
@@ -81,6 +106,7 @@
                     </a>
                     </div>
                 </div>
+                {% endif %}
                 {% if user.is_authenticated %}
                     <br>
                     <div class="row text-left">

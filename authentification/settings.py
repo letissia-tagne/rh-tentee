@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from .info import *
+from decouple import config
 
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
@@ -29,6 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(3+hwljjyxju_asqcu(hh+)zz0_!^twh5a(%33!m_ppg7zbj@t'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -138,6 +140,17 @@ STATIC_ROOT= BASE_DIR / 'staticfile'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# EMAIL CONFIRMATION 
+#EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 
+#EMAIL_HOST = config('EMAIL_HOST')
+
+#EMAIL_PORT = config('EMAIL_PORT')
+
+#EMAIL_HOST_USER =config('EMAIL_HOST_USER') 
+#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+#EMAIL_USE_TLS =config('EMAIL_USE_TLS')
+
+ 
 AUTH_USER_MODEL = "customuser.CustomUser"
 

@@ -8,7 +8,7 @@ User = get_user_model()
 
 class RegisterCreationForm(UserCreationForm):
     class Meta:
-        model = User
+        model = CustomUser
         fields = ("username",)
 
 class RegisterChangeForm(UserChangeForm):

@@ -1,0 +1,35 @@
+{% extends 'base_dashboard.html'%}
+ {% block content %}
+  <div class="container-fluid">
+     <div class="row">
+ 
+         <div class="col-md-6">
+             <h1>Employés</h1>
+         </div> 
+             
+             <nav>
+              <div class="section">
+                <div class="row">
+                
+                    <div class="col">
+                        <a href="{% url 'authentification.absences_rh' %}"class="active">
+                            <i class="far fa-calendar-times"></i><h6 class="ml-1">Absences</h6>
+                        </a>
+                    </div>
+                    <div class="col">
+                    <a href="{% url 'authentification.conges_rh' %}">
+                        <i class="far fa-calendar-check"></i><h6 class="ml-1">Congés</h6>
+                    </a>
+
+                </div>
+            </div>
+
+                
+         </nav>
+        
+
+         </div>
+      
+     </div>
+
+ {% endblock %}

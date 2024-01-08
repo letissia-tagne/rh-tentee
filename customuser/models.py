@@ -29,3 +29,11 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+class Task(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE) 
+    date = models.DateField()
+    task = models.CharField(max_length=255)
+    duration = models.IntegerField()
+    priority = models.CharField(max_length=10, choices=[('Haute', 'Haute'), ('Moyenne', 'Moyenne'), ('Basse', 'Basse')])
+    status = models.CharField(max_length=10, choices=[('En cours', 'En cours'), ('Terminé', 'Terminé'), ('En attente', 'En attente')])
